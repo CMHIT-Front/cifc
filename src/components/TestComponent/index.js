@@ -1,3 +1,3 @@
-import Test from "./Test";
+import TestComponent from "./TestComponent";
 
-export default Test;
+export default TestComponent;
