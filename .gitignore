@@ -18,7 +18,7 @@
 .env.test.local
 .env.production.local
 
-# publsh
+# publish
 /es
 /lib
 /dist
