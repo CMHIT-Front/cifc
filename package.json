@@ -1,0 +1,51 @@
+{
+  "name": "cifc",
+  "version": "1.0.0",
+  "description": "UI library for CMHIT",
+  "author": "zwlin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CMHIT-Front/cifc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CMHIT-Front/cifc/issues"
+  },
+  "hemopage": "https://github.com/CMHIT-Front/cifc",
+  "keyword": [
+    "cmhit",
+    "cmhit frontend ui library",
+    "cmhit front components"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "doc:dev": "father doc dev",
+    "doc:build": "father doc build",
+    "build": "father build"
+  },
+  "dependencies": {
+    "antd": "^3.26.5",
+    "antd-mobile": "^2.3.1",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "react-viewer": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.0",
+    "father": "^2.29.1"
+  },
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
+    "antd": ">=3.0.0",
+    "antd-mobile": ">=2.0.0",
+    "lodash": ">=4.0.0",
+    "moment": ">=2.0.0",
+    "react-viewer": ">=3.0.0"
+  }
+}
