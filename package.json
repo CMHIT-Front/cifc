@@ -1,6 +1,6 @@
 {
   "name": "cifc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "UI library for CMHIT",
   "author": "zwlin",
   "repository": {
@@ -40,12 +40,12 @@
     "father": "^2.29.1"
   },
   "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0",
     "antd": ">=3.0.0",
     "antd-mobile": ">=2.0.0",
     "lodash": ">=4.0.0",
     "moment": ">=2.0.0",
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0",
     "react-viewer": ">=3.0.0"
   }
 }
