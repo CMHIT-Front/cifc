@@ -17,5 +17,16 @@ import ImageViewer from "./ImageViewer";
 ## 多张预览图片
 
 <Playground>
-  <ImageViewer style={{width: '500px'}} src="http://www.cmhit.com/images/cmhit/public/home-tab/bg-tab-01.jpg"></ImageViewer>
+  <ImageViewer 
+  style={{width: '500px'}} 
+  src="http://www.cmhit.com/images/cmhit/public/home-tab/bg-tab-01.jpg" 
+  previewSrcList={[{src: 'http://www.cmhit.com/images/cmhit/public/home-tab/bg-tab-01.jpg'}, 
+  {src: 'http://www.cmhit.com/images/cmhit/public/home-tab/bg-tab-01.jpg'}]}
+  previewOption={{
+    visible: true,
+    onClose(){
+      alert('preview closed');
+    }
+  }}
+  ></ImageViewer>
 </Playground>

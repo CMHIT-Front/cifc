@@ -18,57 +18,44 @@ class ImageViewer extends Component {
     previewOption: {}
   };
 
-  constructor(props) {
-    super(props);
+  state = {
+    isVisible: false
+  };
 
-    this.state = {
-      isVisible: false
-    };
-
-    this.handleImgOnClick = this.handleImgOnClick.bind(this);
-    this.handlePreviewOnClose = this.handlePreviewOnClose.bind(this);
-  }
-
-  setVisible(isVisible) {
+  setVisible = isVisible => {
     this.setState({
       isVisible
     });
-  }
+  };
 
-  handlePreviewOnClose() {
+  handlePreviewOnClose = () => {
     this.setVisible(false);
-  }
+  };
 
-  handleImgOnClick() {
+  handleImgOnClick = () => {
     this.setVisible(true);
-  }
+  };
 
   render() {
     const { src, alt, style, previewSrcList, previewOption } = this.props;
-    const previewImgCount = previewSrcList ? previewSrcList.length : 0;
-    let jsxViewer = <></>;
+    const images = previewSrcList.length > 0 ? previewSrcList : [{ src, alt }];
+    const visible = this.state.isVisible;
+    const onClose = () => {
+      this.handlePreviewOnClose();
+      previewOption.onClose && previewOption.onClose();
+    };
+    // 需要覆盖在antd的控件只上，至少要大于1050
+    const zIndex = 1100;
 
-    if (previewImgCount === 0) {
-      // 未传入 preview的图片，则默认preview当前图片
-      jsxViewer = (
-        <Viewer
-          visible={this.state.isVisible}
-          onClose={this.handlePreviewOnClose}
-          images={[{ src, alt }]}
-          {...previewOption}
-        />
-      );
-    } else {
-      // 传入preview图片后，则显示传入的图片数组
-      jsxViewer = (
-        <Viewer
-          visible={this.state.isVisible}
-          onClose={this.handlePreviewOnClose}
-          images={this.props.previewSrcList}
-          {...previewOption}
-        />
-      );
-    }
+    let jsxViewer = (
+      <Viewer
+        {...previewOption}
+        images={images}
+        zIndex={zIndex}
+        visible={visible}
+        onClose={onClose}
+      />
+    );
 
     return (
       <>
