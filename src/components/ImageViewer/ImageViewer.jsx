@@ -44,7 +44,7 @@ class ImageViewer extends Component {
   }
 
   render() {
-    const { src, alt, style, previewSrcList } = this.props;
+    const { src, alt, style, previewSrcList, previewOption } = this.props;
     const previewImgCount = previewSrcList ? previewSrcList.length : 0;
     let jsxViewer = <></>;
 
@@ -55,12 +55,11 @@ class ImageViewer extends Component {
           visible={this.state.isVisible}
           onClose={this.handlePreviewOnClose}
           images={[{ src, alt }]}
+          {...previewOption}
         />
       );
     } else {
-      // 传入preview图片后，则preview传入的图片数组
-      const previewOption = { ...this.props.previewOption };
-      delete previewOption.images;
+      // 传入preview图片后，则显示传入的图片数组
       jsxViewer = (
         <Viewer
           visible={this.state.isVisible}
