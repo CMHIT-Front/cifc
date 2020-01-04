@@ -44,7 +44,7 @@ class ImageViewer extends Component {
       this.handlePreviewOnClose();
       previewOption.onClose && previewOption.onClose();
     };
-    // 需要覆盖在antd的控件只上，至少要大于1050
+    // 需要覆盖在antd的控件之上，至少要大于1050
     const zIndex = 1100;
 
     let jsxViewer = (
