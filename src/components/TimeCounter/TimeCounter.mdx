@@ -11,5 +11,5 @@ import TimeCounter from "./TimeCounter";
 ## 数秒器到时提醒
 
 <Playground>
-  <TimeCounter start={Date.now()} value={Date.now()+5000} onFinish={()=>{alert("finished")}}></TimeCounter>
+  <TimeCounter start={Date.now()} value={Date.now()+5000} onFinish={()=>{alert("finished")}} onTick={()=>{console.log('onTick')}}></TimeCounter>
 </Playground>
