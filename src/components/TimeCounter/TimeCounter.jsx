@@ -48,29 +48,29 @@ class TimeCounter extends Component {
   syncTimer = () => {
     const { start, value, onFinish, onTick } = this.props;
 
-    const timestamp = getTime(value);
+    const timestampValue = getTime(value);
     const timestampStart = getTime(start);
     const timestampCurt = Date.now();
     const timestampPassed = timestampCurt - timestampStart;
     // 开始时间要大于0，才能开启
     if (timestampStart > 0) {
       // 设定时间大于开始时间，才能开启
-      if (timestamp > timestampStart) {
+      if (timestampValue > timestampStart) {
         // 每次同步时的回调
         if (onTick) {
           onTick(timestampPassed);
         }
 
         // 当前时间大于等于设定时间，才能触发回调
-        if (timestampCurt >= timestamp) {
-          if (!this.isFinish && onFinish && timestampCurt >= timestamp) {
+        if (timestampCurt >= timestampValue) {
+          if (!this.isFinish && onFinish && timestampCurt >= timestampValue) {
             this.isFinish = true;
 
             onFinish();
           }
-        } else {
-          this.startTimer();
         }
+        
+        this.startTimer();
       }
     }
   };
