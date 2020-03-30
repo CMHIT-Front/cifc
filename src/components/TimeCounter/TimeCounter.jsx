@@ -37,6 +37,15 @@ class TimeCounter extends Component {
     this.syncTimer();
   }
 
+  componentWillReceiveProps(nextProps) {
+    // 如果重传start和value则把finsh标识置为false
+    const { start: curStart, value: curValue } = this.props;
+    const { start: newStart, value: newValue } = nextProps;
+    if (curStart != newStart || curValue != newValue) {
+      this.isFinish = false;
+    }
+  }
+
   componentDidUpdate() {
     this.syncTimer();
   }
@@ -63,13 +72,12 @@ class TimeCounter extends Component {
 
         // 当前时间大于等于设定时间，才能触发回调
         if (timestampCurt >= timestampValue) {
-          if (!this.isFinish && onFinish && timestampCurt >= timestampValue) {
+          if (this.timeCountID && !this.isFinish && onFinish) {
             this.isFinish = true;
 
             onFinish();
           }
         }
-        
         this.startTimer();
       }
     }
@@ -89,6 +97,7 @@ class TimeCounter extends Component {
     if (this.timeCountID) {
       clearInterval(this.timeCountID);
       this.timeCountID = null;
+      this.isFinish = false;
     }
   };
 
